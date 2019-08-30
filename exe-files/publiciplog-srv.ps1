@@ -29,7 +29,7 @@ Function PublicIPLogSetup {
 
 Function PublicIPLog {
 $currenttime = get-date -Format o
-$publicip = (Invoke-WebRequest -ErrorAction SilentlyContinue -uri "http://ifconfig.me/ip").Content
+$publicip = (Invoke-WebRequest -ErrorAction SilentlyContinue -uri "http://ifconfig.me/ip"  -UseBasicParsing).Content
 
 If ((Get-ItemProperty  -ErrorAction SilentlyContinue -Path $FullPubLogName -Name PublicIP).PublicIP -ne $publicip) {
     
